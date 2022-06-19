@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/6a9fffd8eb.js" crossorigin="anonymous"></script>
+    <title>Huddle</title>
+</head>
+
+<style>
+    @import url(https://fonts.google.com/specimen/Poppins);
+    @import url(https://fonts.google.com/specimen/Open+Sans);
+    
+    :root {
+        --ready_div: 90vw;
+    }
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    a, button{
+        font-family: 'Open Sans';
+    }
+    body{
+        font-family: 'Poppins';
+        
+    }
+
+    header{
+        width: 100%;
+        height: fit-content;
+        padding: 20px;
+        background-color: hsl(193, 100%, 96%);
+        background-image: url('images/bg-hero-mobile.svg');
+        background-repeat: no-repeat;
+        background-position: 100% 100%;
+
+    }
+
+    header nav{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4em;
+    }
+
+    header nav a img{
+        width: 6em;
+    }
+
+    header nav a#try_link{
+        display: inline-block;
+        text-decoration: none;
+        padding: 10px 17px;
+        background: rgb(255,255,255);
+        font-weight: 700;
+        font-size: 16px;
+        cursor: pointer;
+        color: hsl(192, 100%, 9%);
+        border-radius: 16px;
+        box-shadow: 1px 4px 1px 1px rgba(0,0,0,0.2);
+        transition: color .2s ease-out;
+    }
+
+    header nav a#try_link:hover{
+        color: hsl(208, 11%, 55%);
+    }
+
+    button.get_started{
+        background-color: hsl(322, 100%, 66%);
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 2em;
+        padding: 14px 50px;
+        color: white;
+        font-size: 17px;
+        font-weight: 700;
+        transition: background-color .5s ease;
+    }
+
+    button.get_started:hover{
+        background-color: rgba(255, 82, 191, 0.6);
+    }
+
+    header > div{
+        height: 470px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+    }
+
+    header div h1{
+        margin-bottom: 1em;
+    }
+
+    header div p{
+        margin-bottom: 2em;
+        width: 80%;
+    }
+
+    header div img{
+        width: 70vw;
+    }
+
+    main{
+        background: rgb(249, 249, 249);
+        padding-top: 40px;
+        padding-bottom: 120px;
+    }
+
+    main section div{
+        width: 60vw;
+    }
+
+    main section div.img_holder{
+        padding-top: 2em;
+        text-align: center;
+        margin-bottom: 2em;
+    }
+
+    main section div.img_holder img{
+        width: 95%;
+    }
+
+    main section{
+
+        width: 90vw;
+        display: flex;
+        margin: auto;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        background: #fff;
+        border-radius: 8px;
+        padding-bottom: 2em;
+        margin-bottom: 2em;
+
+    }
+
+    main section h2{
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    main section div.text_holder h2{
+        margin-bottom: .7em;
+        color: black;
+    }
+
+    main section div.text_holder p{
+        font-size: 16px;
+        color:hsl(208, 11%, 55%);
+    }
+
+    footer{
+        background: hsl(192, 100%, 9%);
+        color: white;
+        position: relative;
+        padding-top: 120px;
+        padding-right: 1em;
+        padding-left: 1em;
+        padding-bottom: 3.7em;
+        
+    }
+
+    footer div#ready{
+        position: absolute;
+        top: -100px;
+        left: calc((100vw - var(--ready_div)) / 2);
+        width: var(--ready_div);
+        padding-top: 3em;
+        padding-bottom: 2em;
+        text-align: center;
+        background: #fff;
+        border-radius: 12px;
+    }
+
+    footer div#ready h3{
+        color: hsl(192, 100%, 9%);
+        margin-bottom: 1.2em;
+        
+    }
+
+    footer div#footer_logo{
+        margin-bottom: 2.5em;
+    }
+
+    footer div#footer_logo img{
+        width: 6em;
+        filter: brightness(0) saturate(100%) invert(96%) sepia(4%) saturate(15%) hue-rotate(88deg) brightness(103%) contrast(103%);
+    }
+
+    div#info{
+        margin-bottom: 2em;
+    }
+
+    footer div#info > div > div{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        font-size: 14px;
+        margin-bottom: 16px;
+        line-height: 1.5em;
+    }
+
+    footer div#info div.info_img{
+        margin-right: 1em;
+    }
+
+    
+
+    footer div#info .info_content, footer div#info .info_content .other_links{
+        margin-bottom: 1em;
+    }
+
+    i.fa-facebook-f, i.fa-instagram, i.fa-twitter{
+        --fa-border-radius: 50%;
+        --fa-border-padding: 9px;
+        cursor: pointer;
+    }
+
+    #social_links{
+        margin-top: 30px;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    @media screen and (min-width: 500px){
+
+        :root {
+            --ready_div: 50vw;
+        }
+
+        header > div{
+            height: fit-content;
+            padding-bottom: 2em;
+            flex-direction: row;
+            text-align: left;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        header div img{
+            width: 80%;
+        }
+
+        main section{
+            flex-direction: row-reverse;
+            text-align: left;
+            padding-left: 10em;
+        }
+        
+        main section div.text_holder p{
+            width: 75%;
+        }
+
+        main section div.img_holder img{
+            width: 70%;
+        }
+
+        main section#flowing_conversations{
+            flex-direction: row;
+            padding-left: 5em;
+        } 
+
+        footer div#ready{
+            width: var(--ready_div);
+        
+        }
+
+        footer{
+            padding-left: 7em;
+        }
+
+        footer div#info{
+        
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            
+        }
+
+        footer div#info > div{
+            flex-basis: 18vw;
+        }
+
+        footer div#info > div:nth-of-type(2), footer div#info > div:nth-of-type(3){
+            padding-left: 2em;
+        }
+
+        #social_links{
+            margin-top: 0px;
+        }
+        
+    }
+
+</style>
+<body>
+
+    <header>
+        <nav>
+            <a href="#"><img src="images/logo.svg" alt="Huddle_logo"/></a>
+            <a href="#" id="try_link">Try it Free</a>
+        </nav>
+        <div>
+            <div style="margin-bottom: 3em;">
+                <h1>Build The Community Your Fans Will Love</h1>
+                <p>Huddle re-imagines the way we build communities. You have a voice, but so does your audience. Create connections with your users as you engage in genuine discussion.</p>
+                <button type="button" class="get_started">Get Started For Free</button>
+            </div>
+            <div>
+                <img src="images/illustration-mockups.svg">
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="grow_together">
+            <div class="img_holder">
+                <img src="images/illustration-grow-together.svg" alt="Grow together image">
+            </div>
+            <div class="text_holder">
+                <h2>Grow Together</h2>
+                <p>Generate meaningful discussions with your audience and build a strong, loyal Community. Think of the insightful conversations you miss out on with a feedback form.</p>
+            </div>
+        </section>
+
+        <section id="flowing_conversations">
+            <div class="img_holder">
+                <img src="images/illustration-flowing-conversation.svg" alt="Flowing conversation image">
+            </div>
+            <div class="text_holder">
+                <h2>Flowing Conversations</h2>
+                <p>You wouldn't paginate a conversation in real life, so why do it online? Our threads have just-in-time loading for a more natural flow.</p>
+            </div>
+        </section>
+
+        <section id="your_users">
+            <div class="img_holder">
+                <img src="images/illustration-your-users.svg" alt="Flowing conversation image">
+            </div>
+            <div class="text_holder">
+                <h2>Your Users</h2>
+                <p>It takes no time at all to integrate Huddle with your app's authentication solution. This means, once signed in to your app, your users can start chatting immediately.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div id="ready">
+            <h3>Ready To Build Your Community?</h3>
+            <button type="button" class="get_started">Get Started For Free</button>
+        </div>
+
+        
+        <div id="footer_logo">
+            <img src="images/logo.svg"/>
+        </div>
+
+        <div id="info">
+            <div class="info_content">
+                <div>
+                    <div class="info_img"><img src="images/icon-location.svg"/></div>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe eum facere nulla adipisci officiis corporis.</p>
+                </div>
+
+                <div>
+                    <div class="info_img"><img src="images/icon-phone.svg"/></div>
+                    <p>+1-543-123-4567</p>
+                </div>
+
+                <div>
+                    <div class="info_img"><img src="images/icon-email.svg"/></div>
+                    <p>example@huddle.com</p>
+                </div>
+            </div>
+
+            <div class="info_content">
+                <p class="other_links">About Us</p>
+                <p class="other_links">What we do</p>
+                <p class="other_links">FAQ</p>
+            </div>
+
+            <div class="info_content">
+                <p class="other_links">Career</p>
+                <p class="other_links">Blog</p>
+                <p class="other_links">Contact Us</p>
+            </div>
+
+            <div class="info_content" id="social_links">
+                <div>
+                    &nbsp;&nbsp;&nbsp;<i class="fa-brands fa-facebook-f fa-border fa-pull-left"></i>
+                    &nbsp;&nbsp;&nbsp;<i class="fa-brands fa-twitter fa-border fa-pull-left"></i>
+                    &nbsp;&nbsp;&nbsp;<i class="fa-brands fa-instagram fa-border fa-pull-left"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <p style="text-align: center; font-weight: 400;">&copy; Copyright 2018 Huddle. All righs reserved</p>
+
+
+    </footer>
+
+</body>
+</html>
